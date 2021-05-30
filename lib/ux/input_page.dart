@@ -11,8 +11,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   String tandalganJynys;
-  double tartylganTameki = 3;
-  double kylynganSport = 2;
+  double tartylganTameki = 0;
+  double kylynganSport = 5;
   int boy = 170;
   int kilo = 75;
 
@@ -174,12 +174,12 @@ class _InputPageState extends State<InputPage> {
           children: <Widget>[
             ButtonTheme(
               minWidth: 36,
-              child: OutlineButton(
-                borderSide: BorderSide(color: Colors.lightBlue),
+              child: OutlinedButton(
+                // borderSide: BorderSide(color: Colors.lightBlue),
                 child: Icon(FontAwesomeIcons.plus),
                 onPressed: () {
                   setState(() {
-                    parametr == 'БОЙ' ? boy++ : kilo--;
+                    parametr == 'БОЙ' ? boy++ : kilo++;
                   });
 
                   print('Ustudogu buton basyldy');
@@ -188,8 +188,8 @@ class _InputPageState extends State<InputPage> {
             ),
             ButtonTheme(
               minWidth: 36,
-              child: OutlineButton(
-                borderSide: BorderSide(color: Colors.lightBlue),
+              child: OutlinedButton(
+                // borderSide: BorderSide(color: Colors.lightBlue),
                 child: Icon(FontAwesomeIcons.minus),
                 onPressed: () {
                   setState(() {
