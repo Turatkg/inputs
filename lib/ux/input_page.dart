@@ -13,6 +13,8 @@ class _InputPageState extends State<InputPage> {
   String tandalganJynys;
   double tartylganTameki = 3;
   double kylynganSport = 2;
+  int boy = 170;
+  int kilo = 75;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,14 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: MyContainers(),
+                  child: MyContainers(
+                    child: buildRowOutLineButtonum('БОЙ'),
+                  ),
                 ),
                 Expanded(
-                  child: MyContainers(),
+                  child: MyContainers(
+                    child: buildRowOutLineButtonum('Салмак'),
+                  ),
                 ),
               ],
             ),
@@ -46,6 +52,7 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   Text(
                     'Kанча күн спорт менен машыгасың?',
+                    style: bTextStilderi,
                   ),
                   Text(
                     '${kylynganSport.round()}',
@@ -135,6 +142,66 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Row buildRowOutLineButtonum(String parametr) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        RotatedBox(
+          quarterTurns: 3,
+          child: Text(
+            parametr,
+            style: bTextStilderi,
+          ),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        RotatedBox(
+          quarterTurns: 3,
+          child: Text(
+            parametr == 'БОЙ' ? boy.toString() : kilo.toString(),
+            style: bSandardynStilderi,
+          ),
+        ),
+        SizedBox(
+          width: 15,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ButtonTheme(
+              minWidth: 36,
+              child: OutlineButton(
+                borderSide: BorderSide(color: Colors.lightBlue),
+                child: Icon(FontAwesomeIcons.plus),
+                onPressed: () {
+                  setState(() {
+                    parametr == 'БОЙ' ? boy++ : kilo--;
+                  });
+
+                  print('Ustudogu buton basyldy');
+                },
+              ),
+            ),
+            ButtonTheme(
+              minWidth: 36,
+              child: OutlineButton(
+                borderSide: BorderSide(color: Colors.lightBlue),
+                child: Icon(FontAwesomeIcons.minus),
+                onPressed: () {
+                  setState(() {
+                    parametr == 'БОЙ' ? boy-- : kilo--;
+                  });
+                  print('Astydagy buton basyldy');
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
