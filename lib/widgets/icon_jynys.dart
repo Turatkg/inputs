@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inputs_app/widgets/constanst.dart';
 
 class IconJynys extends StatelessWidget {
   final String jynysy;
@@ -21,8 +22,7 @@ class IconJynys extends StatelessWidget {
         ),
         Text(
           jynysy,
-          style: TextStyle(
-              color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold),
+          style: bTextStilderi,
         )
       ],
     );
