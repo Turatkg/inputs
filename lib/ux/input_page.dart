@@ -51,7 +51,7 @@ class _InputPageState extends State<InputPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Kанча күн спорт менен машыгасың?',
+                    'Kанча күн машыгасың?',
                     style: bTextStilderi,
                   ),
                   Text(
