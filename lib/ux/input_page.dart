@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:inputs_app/result_page.dart';
+import 'package:inputs_app/user_data.dart';
 import 'package:inputs_app/widgets/constanst.dart';
 import 'package:inputs_app/widgets/icon_jynys.dart';
 import 'package:inputs_app/widgets/my_containers.dart';
@@ -28,7 +30,7 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: <Widget>[
           Expanded(
             child: Row(
               children: [
@@ -140,6 +142,28 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    UserData(
+                      kilo: kilo,
+                      boy: boy,
+                      tandalganJynys: tandalganJynys,
+                      tartylganTameki: tartylganTameki,
+                      kylynganSport: kylynganSport,
+                    ),
+                  ),
+                ),
+              );
+            },
+            child: Text(
+              'Эсепте',
+              style: bTextStilderi,
+            ),
+          ),
         ],
       ),
     );
@@ -192,9 +216,11 @@ class _InputPageState extends State<InputPage> {
                 // borderSide: BorderSide(color: Colors.lightBlue),
                 child: Icon(FontAwesomeIcons.minus),
                 onPressed: () {
-                  setState(() {
-                    parametr == 'БОЙ' ? boy-- : kilo--;
-                  });
+                  setState(
+                    () {
+                      parametr == 'БОЙ' ? boy-- : kilo--;
+                    },
+                  );
                   print('Astydagy buton basyldy');
                 },
               ),
